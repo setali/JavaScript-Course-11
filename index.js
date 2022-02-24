@@ -1,144 +1,222 @@
-var a = 21
+function factorial (n) {
+  return n === 1 ? 1 : n * factorial(n - 1)
+}
 
-a % 2 ? console.log('Odd') : console.log('Even')
+console.log(factorial(5))
 
-console.log(a % 2 ? 'Odd' : 'Even')
+// function factorial (n) {
+//   var result = 1
 
-// var a = 14
+//   for (var i = n; i > 1; i--) {
+//     result *= i
+//   }
 
-// var state = a % 2 === 1 ? 'Odd' : 'Even'
-
-// console.log('a is ' + state)
-
-// var char = 'C'
-
-// switch (char) {
-//   case 'a':
-//   case 'A':
-//     console.log('Char is a')
-//     break
-
-//   case 'b':
-//   case 'B':
-//     console.log('Char is b')
-//     break
-
-//   default:
-//     console.log('Char is not a or b')
+//   return result
 // }
 
-// var a = 0
+// console.log(factorial(5))
 
-// if (a > 0) {
-//   console.log('a is positive')
-// } else if (a < 0) {
-//   console.log('a is negative')
-// } else {
-//   console.log(' a is zero')
+// 5! => 5 * 4 * 3 * 2 * 1
+// 4! => 4 * 3 * 2 * 1
+// 3! => 3 * 2 * 1
+// 2! => 2 * 1
+// 1! => 1
+
+// 5! => 5 * 4!
+// 4! => 4 * 3!
+// 3! => 3 * 2!
+// 2! => 2 * 1!
+// 1! => 1
+
+// function sum (a, b) {
+//   return a + b
 // }
 
-// var a = 17
-
-// if (a % 2) {
-//   console.log('a is odd')
-// } else {
-//   console.log('a is even')
+// function mul (a, b) {
+//   return a * b
 // }
+
+// function noop () {}
+
+// // const noop = () => {}
+
+// function operate (a, b, cb = noop) {
+//   console.log(a, b, cb)
+//   return cb(a, b)
+// }
+
+// console.log(operate(4, 5))
+
+// console.log(operate(2, 5, sum))
+
+// console.log(operate(3, 5, mul))
+// console.log(
+//   operate(2, 5, function (a, b) {
+//     return a ** b
+//   })
+// )
+
+// console.log(sum(1, 2))
+// console.log(mul(2, 5))
+
+// function sum (a = 0, b = 0, c = 0, d = 0, e = 10) {
+//   // function sum () {
+//   console.log(arguments)
+
+//   console.log(a, e)
+
+//   var result = 0
+
+//   //   for (var i = 0; i < arguments.length; i++) {
+//   //     result += arguments[i]
+//   //   }
+
+//   for (var value of arguments) {
+//     result += value
+//   }
+
+//   return result
+
+//   //   if (c === undefined) {
+//   //     c = 0
+//   //   }
+
+//   //   c = c === undefined ? 0 : c
+
+//   //   c = c || 0
+//   //   c = c ?? 0
+//   //   d = d ?? 0
+
+//   //   return a + b + c + d + e
+// }
+
+// console.log(sum(2, 5, 9))
+
+// console.log(sum(4, 6))
+
+// console.log(sum(4, 6, 3, 8))
+
+// var result = NaN ?? 12
+
+// console.log(result)
+
+// function sum (a, b) {
+//   console.log('Call sum')
+//   var result = a + b
+
+//   return result
+//   console.log('Ali')
+// }
+
+// var value = sum(20, 3)
+
+// console.log(value)
 
 // var person = {
-//   firstName: 'Ali',
-//   lastName: 'Mousavi',
-//   fullName: 'SAli Mousavi'
-// }
-
-// var fullName = person.fullName || person.firstName + ' ' + person.lastName
-
-// console.log(fullName)
-
-// 0 & 0 => 0
-// 0 & 1 => 0
-// 1 & 0 => 0
-// 1 & 1 => 1
-
-// 0 | 0 => 0
-// 1 | 0 => 1
-// 0 | 1 => 1
-// 1 | 1 => 1
-
-// var a = '0'
-
-// console.log(0 === +a)
-
-// console.log('b' + 'a' + NaN + 'a')
-
-// console.log('Ali'.toUpperCase())
-
-// var friends = ['Ali', 'Eli', 'Qoli', 'Fati', 4312, true, {}]
-
-// console.log(typeof friends)
-
-// console.log(friends.length)
-
-// console.log(friends[4])
-
-// friends[0] = 'Hasan'
-// console.log(friends)
-
-// EA12F3
-
-// var person = {
-//   firstName: 'Ali',
-//   lastName: 'Mousavi',
-//   fullName: 'SAli Mousavi',
+//   name: 'Ali',
+//   family: 'Mousavi',
 //   age: 32,
-//   weight: 82,
-//   family: {
-//     father: 'Mohammad',
-//     mother: 'Hajar',
-//     sisters: ['Fati', 'Zari', 'Zeinab'],
-//     brother: 'Mostafa',
-//     wife: 'Eli',
-//     daughters: ['Mahsa']
+//   gender: true
+// }
+
+// var myKey
+
+// for (var key in person) {
+//   console.log(key, person[key])
+//   if (person[key] === 'Mousavi') {
+//     myKey = key
 //   }
 // }
 
-// console.log(typeof person)
+// console.log("=>", myKey)
 
-// var propertyName
+// console.log('fullname' in person)
 
-// if (person.age > 20) {
-//   propertyName = 'fullName'
-// } else {
-//   propertyName = 'firstName'
+// for (var property of person) { // Wrong
+//   console.log(property)
 // }
 
-// console.log(person[propertyName])
+// for (var char of 'Salam') {
+//   console.log(char)
+// }
 
-// console.log(person['fullName'])
+// var friends = ['Ali', 'Eli', 'Qoli', 'Fati']
 
-// console.log(person[propertyName])
+// for (var friend of friends) {
+//   console.log(friend)
+// }
 
-// console.log(person['firstName'])
-// console.log(person.firstName)
+// for (var i = 0; i < friends.length; i++) {
+//   console.log(friends[i])
+// }
 
-// var person2 = person
+// var arr = [6, 2, 9, 3, 1, 8, 5]
 
-// console.log(person2)
+// var result = 0
 
-// person.firstName = 'Eli'
+// for (var i = 0; i < arr.length; i++) {
+//   if (arr[i] % 2) {
+//     continue
+//   }
 
-// console.log(person2)
+//   console.log(arr[i])
 
-// console.log(person === person2)
+//   result += arr[i]
+// }
 
-// console.log(person.firstName)
-// console.log(person.lastName)
-// console.log(person.family.father)
+// console.log('Result: ', result)
 
-// var myName = 'Ali'
-// var myFamily = 'Mousavi'
-// var myAge = 32
+// var arr = [5, 10, 3, 11, 6, 8]
 
-// var str = 'My name is \u{1F600} Ali'
+// var status = false
 
-// console.log(str)
+// for (var i = 0; i < arr.length; i++) {
+//   console.log(arr[i])
+//   if (arr[i] === 11) {
+//     status = true
+//     break
+//   }
+// }
+
+// console.log(status)
+
+// for (var i = 0; i < 10; i++) {
+//   if (i % 2 === 1) {
+//     console.log(i)
+//     continue
+//   }
+
+//   // ...
+
+//   console.log('Salam', i ** 2)
+// }
+
+// var i = 0
+
+// do {
+//   console.log('Hello')
+//   i++
+// } while (i < 5)
+
+// var i = 0
+
+// while (i < 5) {
+//   console.log('Hello')
+//   i++
+// }
+
+// var str = 'Salam'
+
+// for (var i = 0; i < str.length; i++) {
+//   console.log(i, str[i])
+// }
+
+// var friends = ['Ali', 'Eli', 'Qoli', 'Fati']
+
+// for (var i = 0; i < friends.length; i++) {
+//   console.log(i, friends[i])
+// }
+
+// for (var i = 0; i < 5; i++) {
+//   console.log('Hello')
+// }
