@@ -1,222 +1,161 @@
-function factorial (n) {
-  return n === 1 ? 1 : n * factorial(n - 1)
+function myTimeout (a) {
+  setTimeout(function () {
+    console.log(a)
+  }, 1000)
 }
 
-console.log(factorial(5))
+function func () {
+  var i
+  for (var i = 0; i < 5; i++) {
+    // myTimeout(i)
+    setTimeout(
+      function (a) {
+        console.log(i, a)
+      },
+      1000 * i,
+      i
+    )
+  }
+}
 
-// function factorial (n) {
-//   var result = 1
+func()
 
-//   for (var i = n; i > 1; i--) {
-//     result *= i
+// var a = 0
+
+// var intervalId = setInterval(function () {
+//   console.log('Ali', ++a, intervalId)
+
+//   if (a === 10) {
+//     clearInterval(intervalId)
 //   }
+// }, 1000)
 
-//   return result
+// function func (a, b) {
+//   console.log('Ali', a, b)
 // }
 
-// console.log(factorial(5))
+// setTimeout(func, 1000, 1, 2)
+// console.log(1)
+// setTimeout(func, 1000, 'a', 'b')
+// console.log(2)
 
-// 5! => 5 * 4 * 3 * 2 * 1
-// 4! => 4 * 3 * 2 * 1
-// 3! => 3 * 2 * 1
-// 2! => 2 * 1
-// 1! => 1
-
-// 5! => 5 * 4!
-// 4! => 4 * 3!
-// 3! => 3 * 2!
-// 2! => 2 * 1!
-// 1! => 1
-
-// function sum (a, b) {
-//   return a + b
-// }
-
-// function mul (a, b) {
-//   return a * b
-// }
-
-// function noop () {}
-
-// // const noop = () => {}
-
-// function operate (a, b, cb = noop) {
-//   console.log(a, b, cb)
-//   return cb(a, b)
-// }
-
-// console.log(operate(4, 5))
-
-// console.log(operate(2, 5, sum))
-
-// console.log(operate(3, 5, mul))
-// console.log(
-//   operate(2, 5, function (a, b) {
-//     return a ** b
-//   })
+// setTimeout(
+//   function (a) {
+//     console.log('Qoli', a)
+//   },
+//   2000,
+//   100
 // )
+// setTimeout(function () {
+//   console.log('Fati')
+// }, 4000)
+// setTimeout(function () {
+//   console.log('Eli')
+// }, 500)
 
-// console.log(sum(1, 2))
-// console.log(mul(2, 5))
+// function counter () {
+//   var value = 0
 
-// function sum (a = 0, b = 0, c = 0, d = 0, e = 10) {
-//   // function sum () {
-//   console.log(arguments)
-
-//   console.log(a, e)
-
-//   var result = 0
-
-//   //   for (var i = 0; i < arguments.length; i++) {
-//   //     result += arguments[i]
-//   //   }
-
-//   for (var value of arguments) {
-//     result += value
+//   function increase () {
+//     value++
+//     console.log(value)
 //   }
 
-//   return result
+//   function decrease () {
+//     value--
+//     console.log(value)
+//   }
 
-//   //   if (c === undefined) {
-//   //     c = 0
-//   //   }
-
-//   //   c = c === undefined ? 0 : c
-
-//   //   c = c || 0
-//   //   c = c ?? 0
-//   //   d = d ?? 0
-
-//   //   return a + b + c + d + e
-// }
-
-// console.log(sum(2, 5, 9))
-
-// console.log(sum(4, 6))
-
-// console.log(sum(4, 6, 3, 8))
-
-// var result = NaN ?? 12
-
-// console.log(result)
-
-// function sum (a, b) {
-//   console.log('Call sum')
-//   var result = a + b
-
-//   return result
-//   console.log('Ali')
-// }
-
-// var value = sum(20, 3)
-
-// console.log(value)
-
-// var person = {
-//   name: 'Ali',
-//   family: 'Mousavi',
-//   age: 32,
-//   gender: true
-// }
-
-// var myKey
-
-// for (var key in person) {
-//   console.log(key, person[key])
-//   if (person[key] === 'Mousavi') {
-//     myKey = key
+//   return {
+//     // increase: increase,
+//     // decrease: decrease
+//     increase,
+//     decrease
 //   }
 // }
 
-// console.log("=>", myKey)
+// var myCounter1 = counter()
+// var myCounter2 = counter()
 
-// console.log('fullname' in person)
+// var a = 1
 
-// for (var property of person) { // Wrong
-//   console.log(property)
-// }
+// setInterval(function () {
+//   console.log(a++)
+// }, 1000)
 
-// for (var char of 'Salam') {
-//   console.log(char)
-// }
-
-// var friends = ['Ali', 'Eli', 'Qoli', 'Fati']
-
-// for (var friend of friends) {
-//   console.log(friend)
-// }
-
-// for (var i = 0; i < friends.length; i++) {
-//   console.log(friends[i])
-// }
-
-// var arr = [6, 2, 9, 3, 1, 8, 5]
-
-// var result = 0
-
-// for (var i = 0; i < arr.length; i++) {
-//   if (arr[i] % 2) {
-//     continue
-//   }
-
-//   console.log(arr[i])
-
-//   result += arr[i]
-// }
-
-// console.log('Result: ', result)
-
-// var arr = [5, 10, 3, 11, 6, 8]
-
-// var status = false
-
-// for (var i = 0; i < arr.length; i++) {
-//   console.log(arr[i])
-//   if (arr[i] === 11) {
-//     status = true
-//     break
+// function func (a) {
+//   return function (b) {
+//     return function (c) {
+//       return a + b + c
+//     }
 //   }
 // }
 
-// console.log(status)
+// // var result = func(10)(5)(20)
 
-// for (var i = 0; i < 10; i++) {
-//   if (i % 2 === 1) {
-//     console.log(i)
-//     continue
+// // console.log(result)
+
+// var func20 = func(20)
+
+// console.log(func20(2)(3))
+// console.log(func20(20)(5))
+// console.log(func20(20)(12))
+
+// var func30 = func20(10)
+
+// console.log(func30(5))
+// console.log(func30(36))
+
+// function func () {
+//   // var a
+
+//   console.log(a)
+
+//   var a = 50
+
+//   console.log(a)
+// }
+
+// func()
+
+// // var a = 1,
+//   b = 2,
+//   c = 5
+
+// var d = a + b + c
+// ;(b + c).toFixed()
+// ;[a, b] = [b, a]
+
+// var a = 20
+
+// var family = 'Mousavi'
+
+// console.log(family)
+
+// function func () {
+//   console.log(a)
+
+//   window.c = 10
+
+//   var b = 5
+
+//   function func2 () {
+//     d = 50
+
+//     console.log(b)
+//     console.log(family)
+
+//     var f = 60
+//     console.log(f)
 //   }
 
-//   // ...
+//   console.log(b)
 
-//   console.log('Salam', i ** 2)
+//   func2()
 // }
+// console.log(a)
 
-// var i = 0
+// func()
 
-// do {
-//   console.log('Hello')
-//   i++
-// } while (i < 5)
-
-// var i = 0
-
-// while (i < 5) {
-//   console.log('Hello')
-//   i++
-// }
-
-// var str = 'Salam'
-
-// for (var i = 0; i < str.length; i++) {
-//   console.log(i, str[i])
-// }
-
-// var friends = ['Ali', 'Eli', 'Qoli', 'Fati']
-
-// for (var i = 0; i < friends.length; i++) {
-//   console.log(i, friends[i])
-// }
-
-// for (var i = 0; i < 5; i++) {
-//   console.log('Hello')
-// }
+// console.log(c)
+// console.log(d)
