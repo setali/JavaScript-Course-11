@@ -1,3 +1,51 @@
+var eli = {}
+
+eli.eli = eli
+
+//////// 13
+
+// function power (a, b) {
+//   var result = 1
+//   for (var i = 0; i < b; i++) {
+//     result *= a
+//   }
+
+//   return result
+// }
+
+// 5 ^ 4 => 5 * 5 ^ 3
+// 5 ^ 3 => 5 * 5 ^ 2
+// 5 ^ 2 => 5 * 5 ^ 1
+// 5 ^ 1 => 5
+
+function power (a, b) {
+  return b === 1 ? a : a * power(a, b - 1)
+}
+
+// console.log(power(5, 3))
+
+///////  12
+
+var number = 12
+
+// if (number % 2) {
+//   console.log('Odd')
+// } else {
+//   console.log('even')
+// }
+
+// switch (number % 2) {
+//   case 1:
+//     console.log('Odd')
+//     break
+
+//   case 0:
+//     console.log('even')
+//     break
+// }
+
+// console.log(number % 2 ? 'Odd' : 'Even')
+
 // camelCaseNaming
 // PascalCaseNaming
 // snake_case_naming
@@ -12,13 +60,14 @@ function callbackOperation () {
   var numbers = []
 
   for (var i = 1; i < arguments.length; i++) {
-    numbers[i - 1] = arguments[i]
+    numbers.push(arguments[i])
+    // numbers[i - 1] = arguments[i]
   }
 
   return operator.apply(null, numbers)
 }
 
-console.log(callbackOperation(sum, 2, 3, 8))
+// console.log(callbackOperation(sum, 2, 3, 8))
 
 //////// 10
 
