@@ -7,8 +7,19 @@
     <title>Document</title>
   </head>
   <body>
-    <h2>JavaScript Course</h2>
+    <h2 onmouseover="handleMouse()">JavaScript Course</h2>
+    <button onclick="onClick()">Click me</button>
 
-    <script src="./exercise.js"></script>
+    <script src="./index.js"></script>
+
+    <script>
+      function onClick () {
+        console.log('Hello')
+      }
+
+      function handleMouse () {
+        console.log('Mouse over')
+      }
+    </script>
   </body>
 </html>
