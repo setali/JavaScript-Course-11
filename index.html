@@ -7,19 +7,32 @@
     <title>Document</title>
   </head>
   <body>
-    <h2 onmouseover="handleMouse()">JavaScript Course</h2>
-    <button onclick="onClick()">Click me</button>
+    <h2>JavaScript Course</h2>
 
-    <script src="./index.js"></script>
+    <script src="./exercise.js"></script>
 
     <script>
-      function onClick () {
-        console.log('Hello')
+      try {
+        slideshow('http://ali.com/logo.png')
+        // slideshow(['http://ali.com/logo.png', 'asda', 'sda'])
+      } catch (error) {
+        console.log('Ali')
+        console.log(error)
+      } finally {
+        console.log('Finaly')
       }
 
-      function handleMouse () {
-        console.log('Mouse over')
-      }
+      console.log('After slideshow')
+
+      // ...
+      // ...
+      // ...
+
+      // var obj = { family: 'mousavi' }
+      // console.log('hi')
+
+      // console.log(obj.family.father.name)
+      // console.log('salam')
     </script>
   </body>
 </html>

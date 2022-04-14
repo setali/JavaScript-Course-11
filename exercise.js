@@ -1,3 +1,28 @@
+function random (a, b) {
+  return Math.floor(Math.random() * (b - a)) + a
+}
+
+console.log(random(15, 10))
+
+/////// 20
+
+function range (a, b) {
+  var diff = b - a
+  var arr = new Array(diff + 1)
+  return arr.fill(diff).map(function (el, index) {
+    return el + index
+  })
+}
+
+/////// 19
+
+// const result = [7, 23, 101].map(parseInt)
+const result = [7, 23, 101].map(function (el, index, arr) {
+  return parseInt(el, index)
+})
+
+/////// 15
+
 var eli = {}
 
 eli.eli = eli
