@@ -1,268 +1,260 @@
-const person = {
-  firstname: 'Ali',
-  lastname: 'Mousavi',
-  // family: {
-  // father: {
-  //   firstname: 'Mohammad'
-  // }
-  // },
-  // getFullName: function () {
-  //   console.log(`${this.firstname} ${this.lastname}`)
-  // },
-  gender: false
+function distance (a, b) {
+  const dx = a.x - b.x
+  const dy = a.y - b.y
+  return Math.hypot(dx, dy)
 }
 
-// console.log(
-//   person.family && person.family.father && person.family.father.firstname
-// )
-console.log(person.family?.father?.firstname)
+class Point {
+  static world = '2D'
+  constructor (x, y) {
+    this.x = x
+    this.y = y
+  }
+}
 
-person.getFullName?.()
+Point.distance = distance
 
-console.log(person.gender || 'Man')
-console.log(person.gender ?? 'Man')
+const p1 = new Point(5, 5)
+const p2 = new Point(10, 10)
+console.log(Point.world)
+console.log(Point.distance(p1, p2))
 
-// const map = new Map()
-
-// map.set('name', 'Ali')
-// map.set('family', 'Mousavi')
-// map.set(NaN, 12)
-
-// for (const [key, value] of map) {
-//   console.log(key, value)
+// function Person (name, family) {
+//   this.name = name
+//   this.family = family
+//   this.getFulName = () => `${this.name} ${this.family}`
 // }
 
-// const arr = [2, 6, 3, 2, 4, 6, 3, 2, 9, 8]
+// class Person {
+//   city = 'Tehran'
+//   country = 'Iran'
 
-// const set = new Set(arr)
+//   constructor (name, family) {
+//     this.name = name
+//     this.family = family
+//   }
 
-// console.log(set)
+//   get getFulName () {
+//     return `${this.name} ${this.family}`
+//   }
 
-// const newArr = [...set]
-
-// console.log(newArr)
-
-// const set = new Set([4, 5])
-
-// set.add(6)
-
-// const values = set.values()
-
-// console.log(set)
-
-// console.log(values)
-
-// for (const el of values) {
-//   console.log(el)
+//   getFullName = () => `${this.name} ${this.family}`
 // }
 
-// const arr = [2, 4, 6, 8]
+// const ali = new Person('Ali', 'Mousavi')
 
-// const [a, b = 10, ...other] = arr
+// console.log(ali)
+// console.log(ali.getFulName)
+// console.log(ali.getFullName())
 
-// console.log(a, b, other)
+// console.log(ali instanceof Person)
 
-// const person = { name: 'Ali', family: 'Mousavi', age: 32, gender: false }
+// const delay = time =>
+//   new Promise(resolve => setTimeout(() => resolve(), time * 1000))
 
-// // const myName = person.name
-// // const family = person.family
-
-// const { name: firstname, family, gender: sex = true, ...rest } = person
-
-// console.log(firstname, family, sex)
-
-// console.log(rest)
-
-// function func (a, b, ...args) {
-//   console.log(a, b, args)
+// async function func () {
+//   for (let i = 0; i < 5; i++) {
+//     console.log(i)
+//     await delay(1)
+//   }
 // }
 
-// func(2, 5, 4, 9, 6, 3)
+// func()
 
-// const sum = (...args) => {
-//   console.log(args)
-//   return args.reduce((acc, el) => acc + el)
+// async function func () {
+//   console.log(1)
+//   await delay(2)
+//   console.log(2)
+//   await delay(3)
+//   console.log(3)
 // }
 
-// console.log(sum(1, 5, 3, 9))
+// func()
+// function delay (time, number) {
+//   return new Promise((resolve, reject) => {
+//     if (time) {
+//       setTimeout(() => resolve(number ** 2), time * 1000)
+//     } else {
+//       reject('Error')
+//     }
+//   })
+// }
 
-// console.log([...'salam'])
+// async function func () {
+//   console.log(1)
 
-// const person = { name: 'Ali', family: 'Mousavi' }
+//   const result = await delay(2, 5)
 
-// const arr = [...person]
+//   console.log(result)
+//   console.log(2)
 
-// const arr = ['Ali', 'Eli', 'Qoli', 'Fati']
+//   return 'ali'
+// }
 
-// const obj = { ...arr }
+// const f = func().then(data => console.log(data))
+
+// console.log(f)
+
+// async function fAsync () {
+//   return 100
+// }
+
+// fAsync().then(result => console.log(result))
+
+// function request (url, method = 'GET') {
+//   return new Promise((resolve, reject) => {
+//     const xhr = new XMLHttpRequest()
+
+//     xhr.open(method, url)
+//     xhr.send()
+
+//     xhr.onload = function () {
+//       if (xhr.status >= 400) {
+//         reject('There is an error to data fetching')
+//       } else {
+//         function json () {
+//           return new Promise((resolve, reject) => {
+//             try {
+//               const response = JSON.parse(xhr.response)
+//               resolve(response)
+//             } catch (err) {
+//               reject('Data is not a JSON')
+//             }
+//           })
+//         }
+
+//         resolve({
+//           status: xhr.status,
+//           text: xhr.responseText,
+//           json
+//         })
+//       }
+//     }
+//   })
+// }
+
+// async function func () {
+//   console.log(1)
+//   const response = await request('https://jsonplaceholder.typicode.com/users/2')
+//   console.log(2)
+//   const data = await response.json()
+
+//   console.log(data)
+//   console.log(3)
+// }
+
+// func()
+
+// fetch('https://jsonplaceholder.typicode.com/')
+//   .then(response => response.text())
+//   .then(data => console.log(data))
+//   .catch(err => console.log(err))
+
+// request('https://jsonplaceholder.typicode.com/')
+//   .then(response => response.text)
+//   .catch(err => console.log(err))
+
+// fetch('https://jsonplaceholder.typicode.com/users/1')
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(err => console.log(err))
+
+// request('https://jsonplaceholder.typicode.com/users/1')
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(err => console.log(err))
+
+// request('https://jsonplaceholder.typicode.com/users/2')
+//   .then(data => console.log(data))
+//   .catch(err => console.log(err))
+
+// function delay (time, number) {
+//   return new Promise((resolve, reject) => {
+//     if (Number(time)) {
+//       const result = number ** 2
+//       setTimeout(() => resolve({ time, result }), time * 1000)
+//     } else {
+//       reject('time is not correct')
+//     }
+//   })
+// }
+
+// const f = delay(2, 5)
+//   .then(result => {
+//     console.log(`After ${result.time} seconds`)
+//     return result.result
+//   })
+//   .then(result => console.log(result))
+//   .catch(err => console.log(err))
+
+// console.log(f)
+// // const prom = new Promise((resolve, reject) => {
+//   resolve()
+//   reject()
+// })
+
+// console.log(1)
+
+// setTimeout(() => console.log('TimeOut'), 0)
+
+// prom
+//   .then(() => console.log('Prom resolved'))
+//   .catch(() => console.log('Prom rejected'))
+
+// console.log(2)
+
+// const obj = {
+//   name: 'Ali'
+// }
+
+// console.log(`Welcome ${obj}`)
+
+// let value = 10
+
+// function changeValue (valueArg) {
+//   valueArg = 20
+
+//   return valueArg
+// }
+
+// let newValue = changeValue(value)
+
+// console.log(newValue)
+
+// console.log(value)
+
+// const obj = {
+//   name: 'Ali'
+// }
+
+// function changeObj (objArg) {
+//   objArg.name = 'Qoli'
+
+//   return objArg
+// }
+
+// const newObj = changeObj(obj)
+
+// console.log(newObj)
 
 // console.log(obj)
 
-// const person = {
-//   name: 'Ali',
-//   family: 'Mousavi',
-//   company: {
-//     name: 'Digikala'
-//   }
+// console.log(obj === newObj)
+
+// const set = new Set([2, 5])
+
+// console.log(typeof set)
+
+// function changeSet (setArg) {
+//   setArg.add(6)
+
+//   return setArg
 // }
 
-// // const person2 = Object.assign({}, person)
+// const newSet = changeSet(set)
 
-// const person2 = { name: 'Eli', ...person, name: 'Qoli' }
+// console.log(set)
 
-// person.company.name = 'Snapp'
+// console.log(newSet)
 
-// console.log(person2)
-
-// const arr = [1, 2, 3, 4]
-
-// const newArr = [9, 8, 6, ...arr, 2, 5]
-
-// console.log(newArr)
-
-// const numbers = [6, 3, 8, 12, 92, 36, 1]
-
-// // const max = Math.max.apply({}, numbers)
-// const max = Math.max(...numbers)
-
-// console.log(max)
-
-// function func () {
-//   const b = 40
-
-//   // const that = this
-//   console.log(this)
-
-//   return {
-//     a: 20,
-//     noraml: function () {
-//       // console.log(this === that)
-//       console.log(this)
-//     },
-//     arrow: () => {
-//       // console.log(this === that)
-//       console.log(this)
-//     }
-//   }
-// }
-
-// const f = func.call({ name: 'Qoli' })
-
-// const obj = {
-//   name: 'Ali',
-//   newNormal: f.noraml,
-//   newArrow: f.arrow
-// }
-
-// obj.newNormal()
-// obj.newArrow()
-
-// const person = {
-//   name: 'Ali',
-//   family: 'Mousavi'
-// }
-
-// // const f = func.call(person)
-// const f = new func()
-
-// f.noraml()
-
-// f.arrow()
-
-// const pow2 = a => a ** 2
-
-// console.log(pow2(5))
-
-// const sum = (a, b) => {
-//   // console.log(arguments) // Error
-//   return a + b
-// }
-
-// // const a = new sum(1, 6) // Error
-
-// console.log(sum(1, 6))
-
-// const str = `Welcome ${(function getFullname () {
-//   return 'Ali Mousavi'
-// })()}`
-
-// const name = 'Ali',
-//   family = 'Mousavi'
-
-// const str = 'Welcome ' + name + ' ' + family
-// const str = `Welcome ${name} ${family}`
-
-// console.log(str)
-
-// console.log(`Hello`) // backtick
-
-// for (let i = 0; i < 5; i++) {
-//   setTimeout(function () {
-//     console.log(i)
-//   }, 1000)
-// }
-
-// const a = 22
-
-// console.log(a)
-
-// a = 36 //Error
-
-// console.log(a)
-
-// A22EFB
-// const a = { b: 22 }
-
-// console.log(a)
-
-// // a = { b: 36 } // Error
-// a.b = 36
-
-// console.log(a)
-
-// function func () {
-//   let a = 22 // Error
-//   console.log(a)
-
-//   {
-//     var a = 35
-//     console.log(a)
-//   }
-
-//   console.log(a)
-// }
-
-// func()
-
-// console.log(a)
-
-// if (true) {
-//   let a = 22
-
-//   console.log(a)
-
-//   {
-//     // let a = 36
-//     console.log(a)
-//   }
-// }
-
-// a = 35
-
-// console.log(a)
-
-// function func () {
-//   var a
-
-//   console.log(a)
-
-//   var a = 22
-
-//   console.log(a)
-
-//   var a = 35
-
-//   console.log(a)
-// }
-
-// func()
+// console.log(set === newSet)
