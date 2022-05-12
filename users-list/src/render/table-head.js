@@ -1,4 +1,6 @@
-function renderTableHead () {
+import { COLUMNS } from '../tools/constants'
+
+export default function renderTableHead () {
   const tr = document.createElement('tr')
 
   COLUMNS.forEach(column => {

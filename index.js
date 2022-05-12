@@ -1,21 +1,33 @@
-class MyClass {
-  static [Symbol.hasInstance] (instance) {
-    if (instance === 'ali' || Array.isArray(instance)) {
-      return true
-    } else {
-      return false
-    }
+class Person {
+  constructor (name, family) {
+    this.name = name
+    this.family = family
+  }
+
+  static country = 'Iran'
+
+  static hi () {
+    console.log(this)
+    console.log('Hi')
+  }
+
+  hello () {
+    console.log(this)
   }
 }
 
-console.log('ali' instanceof MyClass)
-console.log([] instanceof MyClass)
-console.log({} instanceof MyClass)
-console.log(42 instanceof MyClass)
+const ali = new Person('Ali', 'Mousavi')
 
-const f = new MyClass()
+console.log(ali.country)
+console.log(Person.country)
 
-console.log(f instanceof MyClass)
+console.log(Person.family)
+
+Person.hi()
+
+ali.hello()
+
+// ali.hi()
 
 // const person = {
 //   name: 'Ali',

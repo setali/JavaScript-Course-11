@@ -1,3 +1,5 @@
+import { COLUMNS } from '../tools/constants'
+
 class User {
   constructor ({ id, name, username, email, address: _address }) {
     this.id = id
@@ -55,3 +57,5 @@ class User {
     return tr
   }
 }
+
+export default User
